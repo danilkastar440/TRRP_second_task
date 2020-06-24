@@ -46,7 +46,7 @@ def write_data_mysql(data):
     cursor_mysql.execute('alter table wheels add primary key(wheel_model)')
     #add connections
     for item in data:
-        #print(item)
+        print(item)
         #('2114', 'LADA', 'Russia', 'V123', '80', '16', 'L4', 'M123', 'M', '5', 'Best kolesa', '13', 'White', '100000')
         cursor_mysql.execute(f'INSERT INTO cars(model,brand,engine,transmission,price,wheel) values ("{item[0]}","{item[1]}","{item[3]}","{item[7]}",{item[13]},"{item[10]}") ON DUPLICATE KEY UPDATE model = "{item[0]}"')
         cursor_mysql.execute(f'INSERT INTO engines(engine_model,engine_power,engine_volume,engine_type) values ("{item[3]}",{item[4]},{item[5]},"{item[6]}") ON DUPLICATE KEY UPDATE engine_model = "{item[3]}"')
