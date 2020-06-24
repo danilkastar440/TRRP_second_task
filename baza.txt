@@ -1,0 +1,5 @@
+2114,LADA,Russia,V123,80,16,L4,M123,M,5,Best kolesa,13,White,100000
+2115,LADA,Russia,V124,100,18,L4,M123,M,5,Not best kolesa,13,Black,150000
+Rio,Kia,Korea,V14234,100,90,V4,A1234,A,4,Best kolesa,15,Red,400000
+Sportage,Kia,Korea,V12323,100,90,V4,A123,A,5,THE best kolesa,15,Yellow,500000
+911,Porsche,Germany,E2312,300,50,V12,R123,A,8,THE best kolesa,20,Blue,3000000
