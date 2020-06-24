@@ -5,11 +5,6 @@ import argparse
 import xlsxwriter
 import mysql.connector
 
-parser = argparse.ArgumentParser(description='Process db file')
-parser.add_argument('--filename', help='sqlite3 filename')
-parser.add_argument("--export", help="Export all tables to xlsx", action="store_true")
-args = parser.parse_args()
-
 
 def read_data_sqlite3(filename):
     conn_lite = sqlite3.connect(filename)
@@ -119,17 +114,21 @@ def export():
 
 
 if __name__=="__main__":
+    parser = argparse.ArgumentParser(description='Process db file')
+    parser.add_argument('--filename', help='sqlite3 filename')
+    parser.add_argument("--export", help="Export all tables to xlsx", action="store_true")
+    args = parser.parse_args()
     if args.export and args.filename:
         data = read_data_sqlite3(args.filename)
         write_data_mysql(data)
         export()
     elif args.filename:
-        data = read_data_sqlite3(args.filename)
-        write_data_mysql(data)
+       	data = read_data_sqlite3(args.filename)
+       	write_data_mysql(data)
     elif args.export:
-        export()
+       	export()
     else:
-        print("Add some functions or --help for help")
+       	print("Add some functions or --help for help")
 
 
 
