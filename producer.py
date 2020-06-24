@@ -11,7 +11,7 @@ from kafka import KafkaProducer
 def by_kafka(data):
     producer = KafkaProducer(bootstrap_servers='10.8.0.1:9092', api_version = (1,0,0))
     for item in data:
-        print(item)
+        #print(item)
         producer.send('TutorialTopic', bytes(str(item),'utf-8'))
     producer.close()
 
@@ -34,8 +34,8 @@ if __name__=="__main__":
         #list of tuples
         data = normalize.read_data_sqlite3("baza.db")
         if args.kafka:
-                by_kafka(data)
+            by_kafka(data)
         elif args.socket:
-                by_socket(data)
+            by_socket(data)
         else:
-                print("Add some startup options")
+            print("Add some startup options")

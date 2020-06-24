@@ -7,6 +7,9 @@ from kafka import KafkaConsumer
 
 def by_kafka():
     consumer = KafkaConsumer('TutorialTopic', bootstrap_servers='10.8.0.1:9092')
+    #processing for db
+    normalize.prepare_db()
+    print("Database is ready, waiting for messages from kafka on 10.8.0.1")
     
     for msg in consumer:
         items = []
@@ -47,9 +50,6 @@ if __name__=="__main__":
     parser.add_argument("--socket", help="Import by socket", action="store_true")
     args = parser.parse_args()
     
-    #processing for db
-    normalize.prepare_db()
-    print("Database is ready, waiting for messages from kafka on 10.8.0.1")
     
     if args.kafka:
     	by_kafka()
