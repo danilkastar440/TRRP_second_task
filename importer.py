@@ -13,7 +13,6 @@ def by_kafka():
         item = msg.value.decode("utf-8")[1:-1].replace("'",'').replace(', ',',').split(',')
         #items should be list of tuples or list of lists
         items.append(item)
-        #print(type(msg.value.decode("utf-8")))
         normalize.write_data_mysql(items)
 
 
@@ -38,7 +37,6 @@ async def get_information(websocket, path):
             item = string[1:-1].replace("'",'').replace(', ',',').split(',')
             #items should be list of tuples or list of lists
             items.append(item)
-            #print(items)
             normalize.write_data_mysql(items)
     except:
         pass
